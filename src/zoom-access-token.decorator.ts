@@ -1,8 +1,8 @@
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 
-export const ZoomRedirectUri = createParamDecorator(
+export const ZoomAccessToken = createParamDecorator(
     (data: unknown, ctx: ExecutionContext) => {
         const req = ctx.switchToHttp().getRequest();
-        return req.zoomRedirectUri;
+        return req.zoomAccessToken;
     }
 )

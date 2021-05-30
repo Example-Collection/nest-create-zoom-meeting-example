@@ -1,6 +1,6 @@
 import { Controller, Get, Query, Res } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ZoomRedirectUri } from './zoom-redirect-uri.decorator';
+import { ZoomAccessToken } from './zoom-access-token.decorator';
 
 @Controller()
 export class AppController {
@@ -10,9 +10,8 @@ export class AppController {
 
   @Get('/new-meeting')
   getNewMeeting(
-    @Query('code') code: string,
-    @ZoomRedirectUri() zoomRedirectUri: string,
+    @ZoomAccessToken() zoomAccessToken: string,
   ): Promise<string> {
-    return this.appService.createNewMeeting({ code, zoomRedirectUri });
+    return this.appService.createNewMeeting({ zoomAccessToken });
   }
 }
