@@ -33,7 +33,7 @@ export class ZoomRequestMiddleware implements NestMiddleware {
 
         req.zoomAccessToken = accessToken;
       } catch(err) {
-        throw new InternalServerErrorException(err);
+        res.status(500).send(JSON.stringify(new InternalServerErrorException(err)));
       }
     }
     next();
