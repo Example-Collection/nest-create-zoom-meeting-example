@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { ZOOMKR_MODULE } from 'nest-zoomkr';
 import { Zoomkr } from 'zoomkr';
 
@@ -11,7 +10,6 @@ export class AppService {
 
   constructor(
     @Inject(ZOOMKR_MODULE) private readonly zoomkr: Zoomkr,
-    private readonly configService: ConfigService,
   ) {
   }
   
@@ -19,7 +17,7 @@ export class AppService {
     zoomAccessToken: string;
   }) {
     const { zoomAccessToken } = payload;
-
-    return zoomAccessToken;
+    const meeting = await this.zoomkr.meeting.create({ param: { userId: 'me' }, query: undefined, body: {settings: {}}, accessToken: zoomAccessToken });
+    return meeting;
   }
 }
