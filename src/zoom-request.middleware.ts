@@ -35,7 +35,7 @@ export class ZoomRequestMiddleware implements NestMiddleware {
       } catch(err) {
         throw new InternalServerErrorException(err);
       }
+      next();
     }
-    next();
   }
 }
