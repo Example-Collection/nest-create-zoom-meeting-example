@@ -29,7 +29,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
-    "zoomkr": "^0.0.4"
+    "zoomkr": "^0.0.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",

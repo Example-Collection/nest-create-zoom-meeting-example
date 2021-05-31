@@ -17,7 +17,7 @@ export class AppService {
     zoomAccessToken: string;
   }) {
     const { zoomAccessToken } = payload;
-    const meeting = await this.zoomkr.meeting.create({ param: { userId: 'me' }, query: undefined, body: {settings: {}}, accessToken: zoomAccessToken });
+    const meeting = await this.zoomkr.meeting.create({ param: { userId: 'me' }, query: undefined, body: {}, accessToken: zoomAccessToken });
     return meeting;
   }
 }
